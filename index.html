@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Plan HM Kraków</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" />
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg:#0b1020; --card:#121a2c; --soft:#1b2540; --text:#f5f7fb;
+      --muted:#aeb8cc; --accent:#55d38a; --accent2:#7ea8ff; --warn:#ffd166;
+      --border:#26324f;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:760px;margin:0 auto;padding:18px 14px 40px}
+    .top{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px}
+    .k{font-size:12px;color:var(--muted);margin-bottom:4px}
+    .v{font-size:24px;font-weight:750;line-height:1.05}
+    .s{font-size:13px;color:var(--muted);margin-top:4px}
+    h1{font-size:20px;margin:6px 0 4px}
+    .sub{color:var(--muted);font-size:14px;margin-bottom:14px}
+    .day{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--border);
+      border-radius:16px;padding:0;margin:10px 0;color:var(--text);overflow:hidden}
+    .row{display:flex;gap:12px;align-items:center;padding:14px}
+    .date{width:58px;flex:none}
+    .dow{font-weight:700}
+    .dm{font-size:12px;color:var(--muted)}
+    .mid{min-width:0;flex:1}
+    .title{font-weight:700}
+    .meta{font-size:13px;color:var(--muted);margin-top:3px}
+    .tag{font-size:12px;font-weight:700;padding:6px 8px;border-radius:999px;background:var(--soft);white-space:nowrap}
+    .done{color:#b8f3cf}
+    .details{display:none;padding:0 14px 14px 84px;color:#dce3f2;font-size:14px;line-height:1.5}
+    .day.open .details{display:block}
+    .day.today{outline:2px solid var(--accent2)}
+    .day.completed{border-color:#2e7b53}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    button.small{border:1px solid var(--border);background:var(--soft);color:var(--text);border-radius:10px;padding:8px 10px;font-weight:650}
+    .install{width:100%;border:0;background:var(--accent);color:#08120d;border-radius:14px;padding:13px 14px;font-weight:800;margin:14px 0 8px;display:none}
+    .note{background:var(--soft);border:1px solid var(--border);border-radius:16px;padding:14px;margin-top:16px;font-size:14px;line-height:1.5}
+    .footer{color:var(--muted);font-size:12px;margin-top:16px;text-align:center}
+    @media(max-width:520px){
+      .top{grid-template-columns:1fr 1fr}
+      .top .card:last-child{grid-column:1/-1}
+      .details{padding-left:14px}
+      .tag{font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <section class="card"><div class="k">Cel</div><div class="v">1:52:00</div><div class="s">≈ 5:18/km</div></section>
+      <section class="card"><div class="k">Start</div><div class="v">11.10</div><div class="s">Kraków · półmaraton</div></section>
+      <section class="card"><div class="k">Ostatni bieg</div><div class="v">5,34 km</div><div class="s">6:01/km · HR 134</div></section>
+    </div>
+
+    <h1>Tydzień startowy</h1>
+    <div class="sub">5–11 października 2026 · kliknij trening, żeby rozwinąć szczegóły</div>
+
+    <button id="installBtn" class="install">Dodaj na ekran główny</button>
+
+    <section id="days"></section>
+
+    <div class="note">
+      <strong>Zasada na ten tydzień:</strong> nie budujemy już formy. Utrzymujemy rytm, pilnujemy reakcji po infekcji i stajemy na starcie z pełnym glikogenem oraz świeżymi nogami.
+    </div>
+
+    <div class="footer">Status wykonania zapisuje się lokalnie w telefonie.</div>
+  </main>
+
+<script>
+const plan = [
+  {d:"2026-10-05", dow:"Pon", dm:"05.10", title:"Easy run", meta:"5,34 km · 32:08 · 6:01/km · HR 134", tag:"Wykonany", done:true,
+   details:"Spokojny powrót po infekcji. Splity stabilne, bez istotnego dryfu tętna. Trening potwierdził, że można kontynuować taper bez nadrabiania objętości."},
+  {d:"2026-10-06", dow:"Wt", dm:"06.10", title:"Bardzo lekki bieg", meta:"3–4 km · 6:10–6:35/km · HR 130–145", tag:"Easy",
+   details:"Maks. 20–25 min. Pierwszy kilometr nawet 6:25–6:40/km. Bez przebieżek, podbiegów i finiszu. Jeśli tętno będzie nietypowo wysokie albo wróci rozbicie — kończysz wcześniej."},
+  {d:"2026-10-07", dow:"Śr", dm:"07.10", title:"Tempo HM", meta:"5–6 km łącznie · 3 × 1 km @ 5:15–5:20", tag:"Kluczowy",
+   details:"1,5–2 km easy → 3 × 1 km po 5:15–5:20/km → 2 min bardzo lekkiego truchtu między odcinkami → schłodzenie. Ma być kontrolowanie i z zapasem."},
+  {d:"2026-10-08", dow:"Czw", dm:"08.10", title:"Odpoczynek", meta:"Spacery + 10–15 min mobilności", tag:"Rest",
+   details:"Bez biegania i siły nóg. Lekka mobilność bioder, pośladków, tyłu uda i łydek. Bez agresywnego rozciągania."},
+  {d:"2026-10-09", dow:"Pt", dm:"09.10", title:"Rozruch", meta:"3–4 km easy + 3 × 20 s przebieżki", tag:"Lekko",
+   details:"Easy około 6:00–6:20/km. Potem 3 krótkie przebieżki po 20 s z pełnym odpoczynkiem. To nie sprint."},
+  {d:"2026-10-10", dow:"Sob", dm:"10.10", title:"Kraków · odpoczynek", meta:"Lekki spacer · nawodnienie · węglowodany", tag:"Taper",
+   details:"Bez biegania. Nie rób całodziennego zwiedzania. Jedz głównie łatwe węglowodany, pij regularnie, nie eksperymentuj z jedzeniem ani suplementami."},
+  {d:"2026-10-11", dow:"Nd", dm:"11.10", title:"PÓŁMARATON", meta:"21,1 km · cel 1:52 · średnio 5:18/km", tag:"START",
+   details:"Pierwsze 2–3 km około 5:20–5:23/km. Potem stabilizacja w pobliżu 5:18/km. Jeśli po 15–16 km czujesz zapas, stopniowo przyspieszaj."}
+];
+
+const stored = JSON.parse(localStorage.getItem("hmDone") || "{}");
+const today = new Date();
+const ymd = [today.getFullYear(), String(today.getMonth()+1).padStart(2,"0"), String(today.getDate()).padStart(2,"0")].join("-");
+const container = document.getElementById("days");
+
+plan.forEach((x, i) => {
+  const isDone = x.done || stored[x.d] === true;
+  const el = document.createElement("article");
+  el.className = "day" + (x.d===ymd ? " today":"") + (isDone ? " completed":"");
+  el.innerHTML = `
+    <div class="row" role="button" tabindex="0" aria-expanded="false">
+      <div class="date"><div class="dow">${x.dow}</div><div class="dm">${x.dm}</div></div>
+      <div class="mid"><div class="title">${x.title}${isDone ? " ✓":""}</div><div class="meta">${x.meta}</div></div>
+      <div class="tag ${isDone ? "done":""}">${x.tag}</div>
+    </div>
+    <div class="details">
+      <div>${x.details}</div>
+      ${x.d !== "2026-10-11" ? `<div class="actions"><button class="small doneBtn" type="button">${isDone ? "Cofnij wykonanie":"Oznacz jako wykonany"}</button></div>`:""}
+    </div>`;
+  const row = el.querySelector(".row");
+  const toggle = () => {
+    const open = el.classList.toggle("open");
+    row.setAttribute("aria-expanded", String(open));
+  };
+  row.addEventListener("click", toggle);
+  row.addEventListener("keydown", e => { if(e.key==="Enter" || e.key===" "){e.preventDefault();toggle();}});
+  const doneBtn = el.querySelector(".doneBtn");
+  if(doneBtn){
+    doneBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      const newValue = !(stored[x.d] === true || x.done);
+      if(x.done){
+        stored[x.d] = false;
+      } else {
+        stored[x.d] = newValue;
+      }
+      localStorage.setItem("hmDone", JSON.stringify(stored));
+      location.reload();
+    });
+  }
+  container.appendChild(el);
+});
+
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block";
+});
+installBtn.addEventListener("click", async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.style.display = "none";
+});
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>

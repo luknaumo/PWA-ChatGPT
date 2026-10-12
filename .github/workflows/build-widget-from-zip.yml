@@ -22,6 +22,7 @@ jobs:
     env:
       ANDROID_HOME: /usr/local/lib/android/sdk
       ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      WIDGET_KEYSTORE_PATH: /home/runner/.android/road-to-berlin-widget.keystore
 
     steps:
       - name: Checkout
@@ -41,11 +42,32 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Keep the signing key for widget updates
-        uses: actions/cache@v4
+      - name: Restore the widget signing key
+        id: signing-key
+        uses: actions/cache/restore@v4
         with:
-          path: ~/.android/debug.keystore
-          key: road-to-berlin-widget-debug-signing-v1
+          path: ${{ env.WIDGET_KEYSTORE_PATH }}
+          key: road-to-berlin-widget-debug-signing-v2
+
+      - name: Prepare the widget signing key
+        shell: bash
+        run: |
+          mkdir -p "$(dirname "$WIDGET_KEYSTORE_PATH")"
+          if [ ! -f "$WIDGET_KEYSTORE_PATH" ]; then
+            keytool -genkeypair -keystore "$WIDGET_KEYSTORE_PATH" \
+              -storepass android -keypass android -alias androiddebugkey \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=Android Debug,O=Android,C=US"
+          fi
+          keytool -list -keystore "$WIDGET_KEYSTORE_PATH" -storepass android \
+            -alias androiddebugkey > /dev/null
+
+      - name: Save the widget signing key
+        if: steps.signing-key.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.WIDGET_KEYSTORE_PATH }}
+          key: road-to-berlin-widget-debug-signing-v2
 
       - name: Install Android SDK packages
         shell: bash
@@ -64,13 +86,13 @@ jobs:
         run: gradle --stacktrace testDebugUnitTest assembleDebug
 
       - name: Rename APK
-        run: cp _widget_build/android-widget/app/build/outputs/apk/debug/app-debug.apk Road-to-Berlin-Widget.apk
+        run: cp _widget_build/android-widget/app/build/outputs/apk/debug/app-debug.apk Road-to-Berlin-Widget-3x2.apk
 
       - name: Verify the installer
         shell: bash
         run: |
-          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose Road-to-Berlin-Widget.apk
-          "${ANDROID_HOME}/build-tools/35.0.0/aapt" dump badging Road-to-Berlin-Widget.apk
+          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose Road-to-Berlin-Widget-3x2.apk
+          "${ANDROID_HOME}/build-tools/35.0.0/aapt" dump badging Road-to-Berlin-Widget-3x2.apk
           python - <<'PY'
           import os, pathlib, re, subprocess
           signer = os.path.join(os.environ['ANDROID_HOME'], 'build-tools/35.0.0/apksigner')
@@ -80,9 +102,9 @@ jobs:
               if not match:
                   raise RuntimeError('Missing signing certificate')
               return match.group(1).lower()
-          previous = pathlib.Path('downloads/Road-to-Berlin-Widget.apk')
+          previous = pathlib.Path('downloads/Road-to-Berlin-Widget-3x2.apk')
           if previous.exists():
-              assert certificate(previous) == certificate('Road-to-Berlin-Widget.apk'), 'Signing key changed; installer cannot update the previous widget'
+              assert certificate(previous) == certificate('Road-to-Berlin-Widget-3x2.apk'), 'Signing key changed; installer cannot update the previous widget'
               print('Signing certificate matches the previous widget installer')
           PY
 
@@ -90,7 +112,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Road-to-Berlin-Widget-APK
-          path: Road-to-Berlin-Widget.apk
+          path: Road-to-Berlin-Widget-3x2.apk
           if-no-files-found: error
 
       - name: Publish the installer
@@ -99,8 +121,8 @@ jobs:
           script: |
             const fs = require('fs');
             const crypto = require('crypto');
-            const apk = fs.readFileSync('Road-to-Berlin-Widget.apk');
-            const path = 'downloads/Road-to-Berlin-Widget.apk';
+            const apk = fs.readFileSync('Road-to-Berlin-Widget-3x2.apk');
+            const path = 'downloads/Road-to-Berlin-Widget-3x2.apk';
             let sha;
             try {
               const existing = await github.rest.repos.getContent({ ...context.repo, path, ref: 'main' });
@@ -114,6 +136,8 @@ jobs:
               content: apk.toString('base64')
             });
             core.summary.addHeading('Road to Berlin widget');
-            core.summary.addLink('Download APK', 'https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget.apk');
+            core.summary.addLink('Download APK', 'https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget-3x2.apk');
+            core.summary.addRaw('\nInstaller for the resizable 3 by 2 widget. If the older widget is installed, uninstall only the widget add-on before installing this APK. Training completion stays in the PWA.\n');
             core.summary.addRaw('\nSHA-256: ' + crypto.createHash('sha256').update(apk).digest('hex'));
             await core.summary.write();
+

@@ -45,7 +45,11 @@ Kopia powstaje na urządzeniu, bez wysyłania danych na serwer.
 
 Widżet na ekran główny Androida:
 Pobierz dodatek (Android 8.0+):
-https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget.apk
+https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget-3x2.apk
+Domyślny rozmiar to 3 × 2 kafelki; przytrzymaj widżet, aby zmienić rozmiar
+w poziomie i w pionie. Treść dopasowuje się do dostępnego miejsca.
+Jeżeli masz starszy dodatek widżetu, najpierw odinstaluj tylko ten dodatek.
+Nowy instalator ma nowy podpis; PWA i jej odhaczenia pozostają na urządzeniu.
 Zainstaluj plik APK, otwórz „Road to Berlin — widżet” i wybierz „Dodaj widżet”.
 Możesz też przytrzymać wolne miejsce na ekranie głównym, wybrać „Widżety”
 i znaleźć „Road to Berlin”. Widżet pokazuje dzisiejszy trening oraz przyciski
@@ -54,4 +58,5 @@ Treningi nadal odhaczasz w PWA; dodatek nie zmienia lokalnych oznaczeń.
 
 Uwaga: pliki PWA otwarte bezpośrednio z pamięci telefonu (file://) nie mogą zarejestrować service workera,
 więc instalacja jak normalnej aplikacji wymaga hostowania przez HTTPS.
+
 

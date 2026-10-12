@@ -1,0 +1,65 @@
+{
+  "appName": "Road to Berlin",
+  "goal": {
+    "name": "Berlin Half Marathon",
+    "date": "2027-04-04",
+    "location": "Berlin"
+  },
+  "week": {
+    "start": "2026-10-12",
+    "end": "2026-10-18",
+    "title": "Regeneracja po półmaratonie",
+    "note": "Po półmaratonie w Krakowie odpoczywamy i spokojnie wracamy do ruchu. Biegi w tym tygodniu są opcjonalne, bez tempa, interwałów i nadrabiania kilometrów. Jeśli nadal czujesz zmęczenie, ból lub objawy infekcji, wybierz odpoczynek. Przygotowania do Berlina zaczynamy od regeneracji."
+  },
+  "days": [
+    {
+      "d": "2026-10-12",
+      "title": "Odpoczynek po starcie",
+      "meta": "Bez biegania · opcjonalnie 15–20 min spaceru",
+      "tag": "Regeneracja",
+      "details": "Odpoczynek, sen i spokojny dzień. Jeśli masz ochotę, krótki spacer bez celu dystansowego. Bez siły nóg i mocnego rozciągania."
+    },
+    {
+      "d": "2026-10-13",
+      "title": "Spacer i lekka mobilność",
+      "meta": "20–30 min spaceru + 5–10 min mobilności",
+      "tag": "Lekko",
+      "details": "Swobodny spacer i łagodne ruchy bioder, kostek oraz pleców. Dostosuj czas do samopoczucia; przy obolałych nogach wystarczy odpoczynek."
+    },
+    {
+      "d": "2026-10-14",
+      "title": "Dzień bez biegania",
+      "meta": "Odpoczynek lub do 30 min spokojnego spaceru",
+      "tag": "Odpoczynek",
+      "details": "Daj nogom kolejny dzień regeneracji. Bez treningu siłowego nóg i bez sprawdzania tempa. Oceń, czy zmęczenie po starcie stopniowo ustępuje."
+    },
+    {
+      "d": "2026-10-15",
+      "title": "Opcjonalny trucht",
+      "meta": "15–20 min bardzo lekko · tempo rozmowy",
+      "tag": "Opcjonalnie",
+      "details": "Tylko jeśli czujesz się dobrze, nogi nie bolą i nie ma objawów infekcji. Zacznij od spaceru, potem bardzo lekki trucht bez celu tempa i tętna. Jeśli nie jest swobodnie, zakończ i wróć spacerem."
+    },
+    {
+      "d": "2026-10-16",
+      "title": "Odpoczynek i mobilność",
+      "meta": "Bez biegania · opcjonalnie 10 min mobilności",
+      "tag": "Regeneracja",
+      "details": "Spokojny dzień po ewentualnym truchcie. Lekka mobilność bez forsowania zakresu ruchu, spacer według ochoty. Priorytetem jest odzyskanie świeżości."
+    },
+    {
+      "d": "2026-10-17",
+      "title": "Opcjonalny spokojny bieg",
+      "meta": "20–30 min easy · bez przebieżek i podbiegów",
+      "tag": "Opcjonalnie",
+      "details": "Jeśli po czwartku czujesz się dobrze, pobiegnij swobodnie po płaskiej trasie. Utrzymuj tempo pozwalające rozmawiać pełnymi zdaniami. Przy zmęczeniu wybierz spacer albo odpoczynek."
+    },
+    {
+      "d": "2026-10-18",
+      "title": "Spacer i podsumowanie tygodnia",
+      "meta": "30–40 min spaceru lub pełny odpoczynek",
+      "tag": "Lekko",
+      "details": "Bez długiego wybiegania. Oceń samopoczucie po tygodniu regeneracji i gotowość do kolejnego tygodnia. Nie nadrabiaj pominiętych biegów."
+    }
+  ]
+}

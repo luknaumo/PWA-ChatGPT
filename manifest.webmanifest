@@ -1,6 +1,6 @@
 {
-  "name": "Plan HM Kraków",
-  "short_name": "HM Kraków",
+  "name": "Road to Berlin",
+  "short_name": "Road to Berlin",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0b1020",

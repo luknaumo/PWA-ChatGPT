@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#111827" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Plan HM Kraków</title>
+  <meta name="apple-mobile-web-app-title" content="Road to Berlin" />
+  <title>Road to Berlin</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon-192.png" />
   <style>
@@ -25,6 +26,8 @@
     .v{font-size:24px;font-weight:750;line-height:1.05}
     .s{font-size:13px;color:var(--muted);margin-top:4px}
     h1{font-size:20px;margin:6px 0 4px}
+    h2{font-size:18px;margin:6px 0 4px}
+    .goal{font-size:20px;line-height:1.2}
     .sub{color:var(--muted);font-size:14px;margin-bottom:14px}
     .day{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--border);
       border-radius:16px;padding:0;margin:10px 0;color:var(--text);overflow:hidden}
@@ -46,6 +49,8 @@
     .install{width:100%;border:0;background:var(--accent);color:#08120d;border-radius:14px;padding:13px 14px;font-weight:800;margin:14px 0 8px;display:none}
     .note{background:var(--soft);border:1px solid var(--border);border-radius:16px;padding:14px;margin-top:16px;font-size:14px;line-height:1.5}
     .footer{color:var(--muted);font-size:12px;margin-top:16px;text-align:center}
+    .plan-status{color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:8px}
+    button.small:disabled{opacity:.6}
     @media(max-width:520px){
       .top{grid-template-columns:1fr 1fr}
       .top .card:last-child{grid-column:1/-1}
@@ -56,86 +61,198 @@
 </head>
 <body>
   <main class="wrap">
+    <h1 id="appName">Road to Berlin</h1>
+    <div class="sub">Droga do półmaratonu w Berlinie</div>
     <div class="top">
-      <section class="card"><div class="k">Cel</div><div class="v">1:52:00</div><div class="s">≈ 5:18/km</div></section>
-      <section class="card"><div class="k">Start</div><div class="v">11.10</div><div class="s">Kraków · półmaraton</div></section>
-      <section class="card"><div class="k">Ostatni bieg</div><div class="v">5,34 km</div><div class="s">6:01/km · HR 134</div></section>
+      <section class="card"><div class="k">Cel</div><div class="v goal" id="goalName">Berlin Half Marathon</div><div class="s" id="goalLocation">Berlin</div></section>
+      <section class="card"><div class="k">Start</div><div class="v" id="goalDate">04.04.2027</div><div class="s">Data zawodów</div></section>
+      <section class="card"><div class="k">Postęp tygodnia</div><div class="v" id="progress">—</div><div class="s">dni oznaczonych jako wykonane</div></section>
     </div>
 
-    <h1>Tydzień startowy</h1>
-    <div class="sub">5–11 października 2026 · kliknij trening, żeby rozwinąć szczegóły</div>
+    <h2 id="weekTitle">Plan tygodniowy</h2>
+    <div class="sub" id="weekDates"></div>
+    <div class="plan-status" id="planStatus" role="status" aria-live="polite">Wczytywanie planu…</div>
+    <button class="small" id="refreshBtn" type="button">Odśwież plan</button>
 
     <button id="installBtn" class="install">Dodaj na ekran główny</button>
 
-    <section id="days"></section>
+    <section id="days" aria-label="Treningi w tym tygodniu" aria-busy="true"></section>
 
-    <div class="note">
-      <strong>Zasada na ten tydzień:</strong> nie budujemy już formy. Utrzymujemy rytm, pilnujemy reakcji po infekcji i stajemy na starcie z pełnym glikogenem oraz świeżymi nogami.
+    <div class="note" id="weekNote" hidden>
+      <strong>Zasada na ten tydzień:</strong> <span id="noteText"></span>
     </div>
 
-    <div class="footer">Status wykonania zapisuje się lokalnie w telefonie.</div>
+    <div class="footer" id="storageStatus" role="status">Status wykonania zapisuje się lokalnie w telefonie.</div>
   </main>
 
 <script>
-const plan = [
-  {d:"2026-10-05", dow:"Pon", dm:"05.10", title:"Easy run", meta:"5,34 km · 32:08 · 6:01/km · HR 134", tag:"Wykonany", done:true,
-   details:"Spokojny powrót po infekcji. Splity stabilne, bez istotnego dryfu tętna. Trening potwierdził, że można kontynuować taper bez nadrabiania objętości."},
-  {d:"2026-10-06", dow:"Wt", dm:"06.10", title:"Bardzo lekki bieg", meta:"3–4 km · 6:10–6:35/km · HR 130–145", tag:"Easy",
-   details:"Maks. 20–25 min. Pierwszy kilometr nawet 6:25–6:40/km. Bez przebieżek, podbiegów i finiszu. Jeśli tętno będzie nietypowo wysokie albo wróci rozbicie — kończysz wcześniej."},
-  {d:"2026-10-07", dow:"Śr", dm:"07.10", title:"Tempo HM", meta:"5–6 km łącznie · 3 × 1 km @ 5:15–5:20", tag:"Kluczowy",
-   details:"1,5–2 km easy → 3 × 1 km po 5:15–5:20/km → 2 min bardzo lekkiego truchtu między odcinkami → schłodzenie. Ma być kontrolowanie i z zapasem."},
-  {d:"2026-10-08", dow:"Czw", dm:"08.10", title:"Odpoczynek", meta:"Spacery + 10–15 min mobilności", tag:"Rest",
-   details:"Bez biegania i siły nóg. Lekka mobilność bioder, pośladków, tyłu uda i łydek. Bez agresywnego rozciągania."},
-  {d:"2026-10-09", dow:"Pt", dm:"09.10", title:"Rozruch", meta:"3–4 km easy + 3 × 20 s przebieżki", tag:"Lekko",
-   details:"Easy około 6:00–6:20/km. Potem 3 krótkie przebieżki po 20 s z pełnym odpoczynkiem. To nie sprint."},
-  {d:"2026-10-10", dow:"Sob", dm:"10.10", title:"Kraków · odpoczynek", meta:"Lekki spacer · nawodnienie · węglowodany", tag:"Taper",
-   details:"Bez biegania. Nie rób całodziennego zwiedzania. Jedz głównie łatwe węglowodany, pij regularnie, nie eksperymentuj z jedzeniem ani suplementami."},
-  {d:"2026-10-11", dow:"Nd", dm:"11.10", title:"PÓŁMARATON", meta:"21,1 km · cel 1:52 · średnio 5:18/km", tag:"START",
-   details:"Pierwsze 2–3 km około 5:20–5:23/km. Potem stabilizacja w pobliżu 5:18/km. Jeśli po 15–16 km czujesz zapas, stopniowo przyspieszaj."}
-];
-
-const stored = JSON.parse(localStorage.getItem("hmDone") || "{}");
-const today = new Date();
-const ymd = [today.getFullYear(), String(today.getMonth()+1).padStart(2,"0"), String(today.getDate()).padStart(2,"0")].join("-");
+const DONE_KEY = "hmDone";
 const container = document.getElementById("days");
+const planStatus = document.getElementById("planStatus");
+const refreshBtn = document.getElementById("refreshBtn");
+const storageStatus = document.getElementById("storageStatus");
+let plan;
+let loading = false;
+let stored = {};
 
-plan.forEach((x, i) => {
-  const isDone = x.done || stored[x.d] === true;
-  const el = document.createElement("article");
-  el.className = "day" + (x.d===ymd ? " today":"") + (isDone ? " completed":"");
-  el.innerHTML = `
-    <div class="row" role="button" tabindex="0" aria-expanded="false">
-      <div class="date"><div class="dow">${x.dow}</div><div class="dm">${x.dm}</div></div>
-      <div class="mid"><div class="title">${x.title}${isDone ? " ✓":""}</div><div class="meta">${x.meta}</div></div>
-      <div class="tag ${isDone ? "done":""}">${x.tag}</div>
-    </div>
-    <div class="details">
-      <div>${x.details}</div>
-      ${x.d !== "2026-10-11" ? `<div class="actions"><button class="small doneBtn" type="button">${isDone ? "Cofnij wykonanie":"Oznacz jako wykonany"}</button></div>`:""}
-    </div>`;
-  const row = el.querySelector(".row");
-  const toggle = () => {
-    const open = el.classList.toggle("open");
-    row.setAttribute("aria-expanded", String(open));
-  };
-  row.addEventListener("click", toggle);
-  row.addEventListener("keydown", e => { if(e.key==="Enter" || e.key===" "){e.preventDefault();toggle();}});
-  const doneBtn = el.querySelector(".doneBtn");
-  if(doneBtn){
-    doneBtn.addEventListener("click", e => {
-      e.stopPropagation();
-      const newValue = !(stored[x.d] === true || x.done);
-      if(x.done){
-        stored[x.d] = false;
-      } else {
-        stored[x.d] = newValue;
-      }
-      localStorage.setItem("hmDone", JSON.stringify(stored));
-      location.reload();
-    });
+try {
+  const saved = JSON.parse(localStorage.getItem(DONE_KEY) || "{}");
+  if (!saved || typeof saved !== "object" || Array.isArray(saved)) throw new Error("Niepoprawny zapis");
+  stored = saved;
+} catch {
+  storageStatus.textContent = "Nie udało się odczytać lokalnych oznaczeń. Możesz spróbować zapisać je ponownie.";
+}
+
+function localDate(date = new Date()) {
+  return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+}
+
+function isDate(value) {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+    Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+}
+
+function validatePlan(data) {
+  const text = value => typeof value === "string" && value.trim().length > 0;
+  if (!data || !text(data.appName) || !data.goal || !text(data.goal.name) ||
+      !text(data.goal.location) || !isDate(data.goal.date) || !data.week ||
+      !isDate(data.week.start) || !isDate(data.week.end) || !text(data.week.title) ||
+      !text(data.week.note) || !Array.isArray(data.days) || data.days.length !== 7 ||
+      Date.parse(data.week.end) - Date.parse(data.week.start) !== 6 * 86400000) {
+    throw new Error("Niepoprawny format planu");
   }
-  container.appendChild(el);
+  data.days.forEach((day, index) => {
+    if (!day || !isDate(day.d) || Date.parse(day.d) !== Date.parse(data.week.start) + index * 86400000 ||
+        ![day.title, day.meta, day.tag, day.details].every(text) ||
+        (day.done !== undefined && typeof day.done !== "boolean")) {
+      throw new Error("Niepoprawny dzień planu");
+    }
+  });
+  return data;
+}
+
+function isDone(day) {
+  return typeof stored[day.d] === "boolean" ? stored[day.d] : day.done === true;
+}
+
+function updateProgress() {
+  document.getElementById("progress").textContent = `${plan.days.filter(isDone).length} / ${plan.days.length}`;
+}
+
+function renderPlan() {
+  const openDays = new Set(Array.from(container.querySelectorAll(".day.open"), day => day.dataset.date));
+  const today = localDate();
+  const dateFormat = new Intl.DateTimeFormat("pl-PL", {dateStyle: "long", timeZone: "UTC"});
+  const shortDate = value => value.split("-").reverse().join(".");
+  document.title = plan.appName;
+  document.getElementById("appName").textContent = plan.appName;
+  document.getElementById("goalName").textContent = plan.goal.name;
+  document.getElementById("goalLocation").textContent = plan.goal.location;
+  document.getElementById("goalDate").textContent = shortDate(plan.goal.date);
+  document.getElementById("weekTitle").textContent = plan.week.title;
+  document.getElementById("weekDates").textContent = `${dateFormat.format(new Date(plan.week.start))} – ${dateFormat.format(new Date(plan.week.end))} · kliknij trening, żeby rozwinąć szczegóły`;
+  document.getElementById("noteText").textContent = plan.week.note;
+  document.getElementById("weekNote").hidden = false;
+  container.replaceChildren();
+
+  plan.days.forEach(day => {
+    const el = document.createElement("article");
+    el.dataset.date = day.d;
+    el.className = "day" + (day.d === today ? " today" : "") + (openDays.has(day.d) ? " open" : "");
+    el.innerHTML = `
+      <div class="row" role="button" tabindex="0" aria-expanded="false">
+        <div class="date"><div class="dow"></div><div class="dm"></div></div>
+        <div class="mid"><div class="title"></div><div class="meta"></div></div>
+        <div class="tag"></div>
+      </div>
+      <div class="details">
+        <div class="description"></div>
+        <div class="actions"><button class="small doneBtn" type="button"></button></div>
+      </div>`;
+    const row = el.querySelector(".row");
+    const details = el.querySelector(".details");
+    details.id = `details-${day.d}`;
+    row.setAttribute("aria-controls", details.id);
+    row.setAttribute("aria-expanded", String(openDays.has(day.d)));
+    el.querySelector(".dow").textContent = ["Nd", "Pon", "Wt", "Śr", "Czw", "Pt", "Sob"][new Date(day.d).getUTCDay()];
+    el.querySelector(".dm").textContent = shortDate(day.d).slice(0, 5);
+    el.querySelector(".meta").textContent = day.meta;
+    el.querySelector(".description").textContent = day.details;
+    const doneBtn = el.querySelector(".doneBtn");
+    const updateDone = () => {
+      const done = isDone(day);
+      el.classList.toggle("completed", done);
+      el.querySelector(".title").textContent = day.title + (done ? " ✓" : "");
+      const tag = el.querySelector(".tag");
+      tag.textContent = done ? "Wykonany" : day.tag;
+      tag.classList.toggle("done", done);
+      doneBtn.textContent = done ? "Cofnij wykonanie" : "Oznacz jako wykonany";
+      doneBtn.setAttribute("aria-pressed", String(done));
+      updateProgress();
+    };
+    const toggle = () => row.setAttribute("aria-expanded", String(el.classList.toggle("open")));
+    row.addEventListener("click", toggle);
+    row.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); toggle(); }
+    });
+    doneBtn.addEventListener("click", () => {
+      const updated = {...stored, [day.d]: !isDone(day)};
+      try {
+        localStorage.setItem(DONE_KEY, JSON.stringify(updated));
+        stored = updated;
+        storageStatus.textContent = "Status wykonania zapisuje się lokalnie w telefonie.";
+        updateDone();
+      } catch {
+        storageStatus.textContent = "Nie udało się zapisać wykonania. Sprawdź, czy przeglądarka zezwala na lokalny zapis.";
+      }
+    });
+    updateDone();
+    container.appendChild(el);
+  });
+}
+
+async function loadPlan() {
+  if (loading) return;
+  loading = true;
+  refreshBtn.disabled = true;
+  container.setAttribute("aria-busy", "true");
+  planStatus.textContent = "Wczytywanie planu…";
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+  try {
+    const response = await fetch("./plan.json", {cache: "no-store", signal: controller.signal});
+    if (!response.ok) throw new Error("Nie udało się pobrać planu");
+    const updated = validatePlan(await response.json());
+    plan = updated;
+    renderPlan();
+    planStatus.textContent = response.headers.get("X-Plan-Source") === "cache"
+      ? "Plan z ostatniej zapisanej kopii. Odśwież po odzyskaniu połączenia."
+      : "Plan aktualny.";
+  } catch {
+    planStatus.textContent = plan
+      ? "Nie udało się odświeżyć planu. Wyświetlam poprzednio wczytany plan. Spróbuj ponownie."
+      : "Nie udało się wczytać planu. Połącz się z siecią i wybierz „Odśwież plan”.";
+  } finally {
+    clearTimeout(timeout);
+    loading = false;
+    refreshBtn.disabled = false;
+    container.setAttribute("aria-busy", "false");
+  }
+}
+
+refreshBtn.addEventListener("click", loadPlan);
+window.addEventListener("online", loadPlan);
+window.addEventListener("storage", event => {
+  if (event.key !== DONE_KEY && event.key !== null) return;
+  try {
+    const saved = JSON.parse(localStorage.getItem(DONE_KEY) || "{}");
+    if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+      stored = saved;
+      if (plan) renderPlan();
+    }
+  } catch { /* Zachowaj oznaczenia w pamięci przy błędzie odczytu. */ }
 });
+loadPlan();
 
 let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
@@ -153,7 +270,10 @@ installBtn.addEventListener("click", async () => {
 });
 
 if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("sw.js");
+  navigator.serviceWorker.register("./sw.js", {updateViaCache: "none"}).catch(() => {
+    planStatus.textContent += " Tryb offline jest chwilowo niedostępny.";
+  });
+  navigator.serviceWorker.addEventListener("controllerchange", loadPlan);
 }
 </script>
 </body>

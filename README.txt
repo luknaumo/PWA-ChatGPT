@@ -5,8 +5,8 @@ Aktualny plan: 12–18.10.2026 — regeneracja po półmaratonie w Krakowie.
 
 Jak uruchomić:
 1. Umieść cały folder na serwerze HTTPS (np. GitHub Pages, Netlify, Cloudflare Pages).
-2. Otwórz index.html przez adres HTTPS w Chrome na Androidzie.
-3. W menu Chrome wybierz „Dodaj do ekranu głównego” / „Zainstaluj aplikację”.
+2. Otwórz index.html przez adres HTTPS w Samsung Internet lub Chrome na Androidzie.
+3. W menu przeglądarki wybierz „Dodaj do ekranu głównego” / „Zainstaluj aplikację”.
 4. Po instalacji aplikacja działa także offline.
 
 Ikona i nazwa na urządzeniu:
@@ -42,6 +42,15 @@ również cofnięte wykonanie i wcześniejsze tygodnie.
 Po ponownej instalacji wybierz „Przywróć kopię” i wskaż ten plik.
 Przywracanie łączy kopię z obecnymi oznaczeniami; dla tej samej daty używa kopii.
 Kopia powstaje na urządzeniu, bez wysyłania danych na serwer.
+
+Widżet na ekran główny Androida:
+Pobierz dodatek (Android 8.0+):
+https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget.apk
+Zainstaluj plik APK, otwórz „Road to Berlin — widżet” i wybierz „Dodaj widżet”.
+Możesz też przytrzymać wolne miejsce na ekranie głównym, wybrać „Widżety”
+i znaleźć „Road to Berlin”. Widżet pokazuje dzisiejszy trening oraz przyciski
+otwarcia aplikacji i odświeżenia planu. Zapisana kopia działa bez sieci.
+Treningi nadal odhaczasz w PWA; dodatek nie zmienia lokalnych oznaczeń.
 
 Uwaga: pliki PWA otwarte bezpośrednio z pamięci telefonu (file://) nie mogą zarejestrować service workera,
 więc instalacja jak normalnej aplikacji wymaga hostowania przez HTTPS.

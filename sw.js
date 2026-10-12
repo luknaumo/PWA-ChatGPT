@@ -1,5 +1,5 @@
 const SHELL_CACHE_PREFIX = "road-to-berlin-shell-";
-const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v5`;
+const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v6`;
 // Keep the last valid plan when a later version of the app shell is installed.
 const PLAN_CACHE = "road-to-berlin-plan-v1";
 const BASE_URL = new URL(self.registration.scope);

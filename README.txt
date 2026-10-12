@@ -35,6 +35,14 @@ według daty dnia. Aktualizacja planu nie usuwa starych oznaczeń.
 Można oznaczać i cofać wykonanie także offline. Dane pozostają na urządzeniu
 i w tej samej przeglądarce; wyczyszczenie danych witryny je usuwa.
 
+Kopia odhaczeń przed ponowną instalacją:
+Na dole aplikacji wybierz „Zapisz kopię odhaczeń” i sprawdź pobrany plik JSON
+w folderze Pobrane. Kopia zawiera oznaczenia z wszystkich zapisanych dat,
+również cofnięte wykonanie i wcześniejsze tygodnie.
+Po ponownej instalacji wybierz „Przywróć kopię” i wskaż ten plik.
+Przywracanie łączy kopię z obecnymi oznaczeniami; dla tej samej daty używa kopii.
+Kopia powstaje na urządzeniu, bez wysyłania danych na serwer.
+
 Uwaga: pliki PWA otwarte bezpośrednio z pamięci telefonu (file://) nie mogą zarejestrować service workera,
 więc instalacja jak normalnej aplikacji wymaga hostowania przez HTTPS.
 

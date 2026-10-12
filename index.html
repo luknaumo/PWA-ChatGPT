@@ -83,6 +83,17 @@
       <strong>Zasada na ten tydzień:</strong> <span id="noteText"></span>
     </div>
 
+    <section class="note" aria-label="Kopia odhaczeń">
+      <strong>Kopia odhaczeń</strong>
+      <p>Zapisz kopię przed ponowną instalacją aplikacji. Przywróć ją, aby odzyskać oznaczenia treningów.</p>
+      <div class="actions">
+        <button class="small" id="exportDoneBtn" type="button">Zapisz kopię odhaczeń</button>
+        <button class="small" id="importDoneBtn" type="button">Przywróć kopię</button>
+      </div>
+      <input id="importDoneFile" type="file" accept=".json,application/json" hidden />
+      <div class="plan-status" id="backupStatus" role="status" aria-live="polite"></div>
+    </section>
+
     <div class="footer" id="storageStatus" role="status">Status wykonania zapisuje się lokalnie w telefonie.</div>
   </main>
 
@@ -112,6 +123,71 @@ function isDate(value) {
   return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
     Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 }
+
+function validateCompletionData(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value) ||
+      !Object.entries(value).every(([date, done]) => isDate(date) && typeof done === "boolean")) {
+    throw new Error("Niepoprawne oznaczenia treningów");
+  }
+  return value;
+}
+
+function readCompletionData() {
+  return validateCompletionData(JSON.parse(localStorage.getItem(DONE_KEY) || "{}"));
+}
+
+const backupStatus = document.getElementById("backupStatus");
+const importDoneFile = document.getElementById("importDoneFile");
+document.getElementById("exportDoneBtn").addEventListener("click", () => {
+  let url;
+  let link;
+  try {
+    const backup = {app: "Road to Berlin", version: 1, exportedAt: new Date().toISOString(), hmDone: readCompletionData()};
+    const blob = new Blob([JSON.stringify(backup, null, 2)], {type: "application/json;charset=utf-8"});
+    url = URL.createObjectURL(blob);
+    link = document.createElement("a");
+    link.href = url;
+    link.download = `road-to-berlin-odhaczenia-${localDate()}.json`;
+    link.hidden = true;
+    document.body.appendChild(link);
+    link.click();
+    backupStatus.textContent = "Rozpoczęto pobieranie kopii. Przed ponowną instalacją sprawdź, czy plik jest w folderze Pobrane.";
+  } catch {
+    backupStatus.textContent = "Nie udało się pobrać kopii odhaczeń. Zachowaj obecną instalację i spróbuj ponownie.";
+  } finally {
+    if (link) link.remove();
+    if (url) setTimeout(() => URL.revokeObjectURL(url), 10000);
+  }
+});
+
+document.getElementById("importDoneBtn").addEventListener("click", () => importDoneFile.click());
+importDoneFile.addEventListener("change", async () => {
+  const file = importDoneFile.files && importDoneFile.files[0];
+  if (!file) return;
+  let completed;
+  try {
+    if (file.size > 1024 * 1024) throw new Error("Za duży plik");
+    const backup = JSON.parse(await file.text());
+    if (!backup || backup.app !== "Road to Berlin" || backup.version !== 1) throw new Error("Niepoprawna kopia");
+    completed = validateCompletionData(backup.hmDone);
+  } catch {
+    backupStatus.textContent = "Nie udało się wczytać kopii. Wybierz plik pobrany przyciskiem „Zapisz kopię odhaczeń”.";
+    importDoneFile.value = "";
+    return;
+  }
+  try {
+    const updated = {...readCompletionData(), ...completed};
+    localStorage.setItem(DONE_KEY, JSON.stringify(updated));
+    stored = updated;
+    if (plan) renderPlan();
+    storageStatus.textContent = "Status wykonania zapisuje się lokalnie w telefonie.";
+    backupStatus.textContent = "Przywrócono kopię odhaczeń.";
+  } catch {
+    backupStatus.textContent = "Nie udało się zapisać odhaczeń. Sprawdź, czy przeglądarka zezwala na lokalny zapis.";
+  } finally {
+    importDoneFile.value = "";
+  }
+});
 
 function validatePlan(data) {
   const text = value => typeof value === "string" && value.trim().length > 0;

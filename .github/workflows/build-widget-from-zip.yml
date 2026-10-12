@@ -71,6 +71,20 @@ jobs:
         run: |
           "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose Road-to-Berlin-Widget.apk
           "${ANDROID_HOME}/build-tools/35.0.0/aapt" dump badging Road-to-Berlin-Widget.apk
+          python - <<'PY'
+          import os, pathlib, re, subprocess
+          signer = os.path.join(os.environ['ANDROID_HOME'], 'build-tools/35.0.0/apksigner')
+          def certificate(path):
+              output = subprocess.check_output([signer, 'verify', '--print-certs', str(path)], text=True)
+              match = re.search(r'Signer #1 certificate SHA-256 digest: ([0-9a-fA-F]+)', output)
+              if not match:
+                  raise RuntimeError('Missing signing certificate')
+              return match.group(1).lower()
+          previous = pathlib.Path('downloads/Road-to-Berlin-Widget.apk')
+          if previous.exists():
+              assert certificate(previous) == certificate('Road-to-Berlin-Widget.apk'), 'Signing key changed; installer cannot update the previous widget'
+              print('Signing certificate matches the previous widget installer')
+          PY
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -100,6 +114,6 @@ jobs:
               content: apk.toString('base64')
             });
             core.summary.addHeading('Road to Berlin widget');
-            core.summary.addLink('Download APK', 'https://luknaumo.github.io/PWA-ChatGPT/downloads/Road-to-Berlin-Widget.apk');
+            core.summary.addLink('Download APK', 'https://github.com/luknaumo/PWA-ChatGPT/raw/refs/heads/main/downloads/Road-to-Berlin-Widget.apk');
             core.summary.addRaw('\nSHA-256: ' + crypto.createHash('sha256').update(apk).digest('hex'));
             await core.summary.write();

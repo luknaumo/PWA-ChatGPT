@@ -1,11 +1,12 @@
 const SHELL_CACHE_PREFIX = "road-to-berlin-shell-";
-const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v1`;
+const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v2`;
 // Keep the last valid plan when a later version of the app shell is installed.
 const PLAN_CACHE = "road-to-berlin-plan-v1";
 const BASE_URL = new URL(self.registration.scope);
 const PLAN_URL = new URL("plan.json", BASE_URL);
+const MANIFEST_URL = new URL("manifest.webmanifest", BASE_URL);
 const INDEX_URL = new URL("index.html", BASE_URL);
-const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png"]
+const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon-road-to-berlin-192-v2.png", "icon-road-to-berlin-512-v2.png"]
   .map(path => new URL(path, BASE_URL).href);
 
 function isDate(value) {
@@ -72,6 +73,36 @@ async function getPlan(request) {
   }
 }
 
+async function getManifest(request) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    // Android must see the current name and versioned icons even before reinstalling.
+    const response = await fetch(request, { cache: "no-store", signal: controller.signal });
+    const manifest = response.ok && await response.clone().json();
+    if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) {
+      throw new Error("Invalid app manifest response");
+    }
+    try {
+      const cache = await caches.open(SHELL_CACHE);
+      await cache.put(MANIFEST_URL.href, response.clone());
+    } catch (_) {}
+    return response;
+  } catch (_) {
+    try {
+      const cache = await caches.open(SHELL_CACHE);
+      const cached = await cache.match(MANIFEST_URL.href);
+      if (cached) return cached;
+    } catch (_) {}
+    return new Response(JSON.stringify({ error: "App manifest is unavailable offline." }), {
+      status: 503,
+      headers: { "Content-Type": "application/manifest+json", "Cache-Control": "no-store" }
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
     const shell = caches.open(SHELL_CACHE).then(cache => cache.addAll(
@@ -105,13 +136,21 @@ self.addEventListener("fetch", event => {
     return;
   }
 
+  if (url.pathname === MANIFEST_URL.pathname) {
+    event.respondWith(getManifest(request));
+    return;
+  }
+
   const asset = ASSETS.find(path => new URL(path).pathname === url.pathname);
   const navigation = request.mode === "navigate" && url.pathname.startsWith(BASE_URL.pathname);
   if (!asset && !navigation) return;
 
   event.respondWith((async () => {
-    const cache = await caches.open(SHELL_CACHE);
-    const cached = await cache.match(asset || INDEX_URL.href);
+    let cached;
+    try {
+      const cache = await caches.open(SHELL_CACHE);
+      cached = await cache.match(asset || INDEX_URL.href);
+    } catch (_) {}
     return cached || fetch(request);
   })());
 });

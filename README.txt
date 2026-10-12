@@ -9,6 +9,13 @@ Jak uruchomić:
 3. W menu Chrome wybierz „Dodaj do ekranu głównego” / „Zainstaluj aplikację”.
 4. Po instalacji aplikacja działa także offline.
 
+Ikona i nazwa na urządzeniu:
+Manifest ustawia nazwę i nazwę skróconą „Road to Berlin”. Nowe ikony z biegaczem
+i Bramą Brandenburską mają rozmiary 192 × 192 i 512 × 512 oraz obsługują maski
+ikon Androida. Wersjonowane nazwy plików pozwalają pobrać nowe grafiki.
+Service worker odświeża manifest z sieci i zachowuje jego kopię do pracy offline.
+Adres startowy i lokalny klucz hmDone są zachowane.
+
 Aktualizacja planu:
 Edytuj tylko plan.json i opublikuj ten plik pod dotychczasowym adresem.
 Format: appName, goal (name, date, location), week (start, end, title, note)

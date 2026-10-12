@@ -1,12 +1,12 @@
 const SHELL_CACHE_PREFIX = "road-to-berlin-shell-";
-const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v3`;
+const SHELL_CACHE = `${SHELL_CACHE_PREFIX}v4`;
 // Keep the last valid plan when a later version of the app shell is installed.
 const PLAN_CACHE = "road-to-berlin-plan-v1";
 const BASE_URL = new URL(self.registration.scope);
 const PLAN_URL = new URL("plan.json", BASE_URL);
 const MANIFEST_URL = new URL("manifest.webmanifest", BASE_URL);
 const INDEX_URL = new URL("index.html", BASE_URL);
-const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon-road-to-berlin-192-v3.png", "icon-road-to-berlin-512-v3.png"]
+const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon-road-to-berlin-192-v4.png", "icon-road-to-berlin-512-v4.png"]
   .map(path => new URL(path, BASE_URL).href);
 
 function isDate(value) {

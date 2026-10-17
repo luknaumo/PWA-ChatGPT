@@ -9,7 +9,7 @@
     "start": "2026-10-12",
     "end": "2026-10-18",
     "title": "Regeneracja po Krakowie · wejście pod sub 1:40",
-    "note": "Po półmaratonie nadal priorytetem jest regeneracja. Nie nadrabiamy pominiętych jednostek. Garmin Training Effect kontroluje bodziec, ale nie wymuszamy wysokiego TE kosztem regeneracji. Podbiegi Pafawag i siłownię wprowadzimy dopiero po pełnym ustąpieniu napięcia nóg."
+    "note": "Priorytetem pozostaje regeneracja po półmaratonie. W sobotę tylko mobilność i rozluźnienie, a w niedzielę spokojne 10 km dla odznaki Garmin. Nie nadrabiamy pominiętych jednostek i nie dokładamy podbiegów ani siły. Po niedzielnym 10 km kolejny dzień będzie pełnym odpoczynkiem."
   },
   "days": [
     {
@@ -49,17 +49,17 @@
     },
     {
       "d": "2026-10-17",
-      "title": "Recovery easy + rozluźnienie ud",
-      "meta": "4–5 km · 6:05–6:30/km · HR 135–145",
+      "title": "Regeneracja + rozluźnienie ud",
+      "meta": "Bez biegania · mobilność i lekki spacer",
       "tag": "Recovery",
-      "details": "Rozgrzewka: 5 min szybkiego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę na stronę, 8 wykroków w tył na stronę, 10 lekkich przysiadów bez obciążenia, 8 wymachów nogi przód–tył na stronę. Bieg: 4–5 km bardzo swobodnie, bez przebieżek i bez podbiegów. Jeśli napięcie ud rośnie albo zmienia krok, przerwij. Schłodzenie: 5 min marszu. Po biegu: 2×30 s rozciągania zginacza biodra na stronę, 2×30 s czworogłowego na stronę, 2×30 s pośladka na stronę, 2×30 s łydki proste kolano + 2×30 s ugięte kolano. Bez bólu i bez agresywnego dociskania. Oczekiwany Garmin Training Effect: aerobic około 1.8–2.5, anaerobic ~0."
+      "details": "Dziś nie nadrabiamy biegania. Przy krótkim śnie i napiętych udach zrób 10–15 min mobilności: 5 min spokojnego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył na stronę, 10 lekkich przysiadów, 2×30 s rozciągania zginacza biodra, czworogłowego, pośladka i łydki na stronę. Bez agresywnego dociskania. Garmin Training Effect: brak / minimalny."
     },
     {
       "d": "2026-10-18",
-      "title": "Opcjonalny easy albo odpoczynek",
-      "meta": "6–8 km bardzo lekko tylko jeśli nogi świeże",
-      "tag": "Opcjonalnie",
-      "details": "Nie nadrabiaj piątkowego treningu. Jeśli po sobocie uda są wyraźnie luźniejsze, nie ma bólu i noc była normalna, zrób 6–8 km easy przy HR 135–150. Jeśli nadal czujesz mocne napięcie, wybierz odpoczynek + spacer. Bez finiszu, bez Pafawagu. Garmin TE przy biegu: aerobic około 2.2–3.0."
+      "title": "10 km easy · odznaka Garmin",
+      "meta": "10 km · 6:00–6:30/km · HR 135–150",
+      "tag": "Easy 10K",
+      "details": "Cel: spokojnie zaliczyć 10 km dla odznaki, bez robienia z tego testu. Rozgrzewka: 5–8 min szybkiego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę na stronę, 8 wykroków w tył na stronę, 8 wymachów nogi przód–tył. Bieg: pierwsze 2 km bardzo lekko, potem równo 6:00–6:30/km przy HR 135–150. Zero podbiegów Pafawag, przebieżek i finiszu. Jeśli napięcie ud narasta, pojawia się ból albo zmienia krok — przerwij. Schłodzenie: 5 min marszu. Po biegu 2×30 s na stronę: zginacz biodra, czworogłowy, pośladek, łydka z prostym i ugiętym kolanem. Oczekiwany Garmin Training Effect: aerobic około 2.5–3.3, anaerobic niski."
     }
   ]
 }

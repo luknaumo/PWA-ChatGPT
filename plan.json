@@ -9,7 +9,7 @@
     "start": "2026-10-12",
     "end": "2026-10-18",
     "title": "Regeneracja po Krakowie · wejście pod sub 1:40",
-    "note": "Priorytetem jest pełne wchłonięcie półmaratonu. Garmin Training Effect traktujemy jako kontrolę bodźca, nie cel sam w sobie. W tym tygodniu easy ma zwykle dać niski/umiarkowany efekt tlenowy, a mocniejsze bodźce, podbiegi Pafawag i siłownię wprowadzimy od kolejnego bloku, gdy nogi będą świeże."
+    "note": "Po półmaratonie nadal priorytetem jest regeneracja. Nie nadrabiamy pominiętych jednostek. Garmin Training Effect kontroluje bodziec, ale nie wymuszamy wysokiego TE kosztem regeneracji. Podbiegi Pafawag i siłownię wprowadzimy dopiero po pełnym ustąpieniu napięcia nóg."
   },
   "days": [
     {
@@ -42,24 +42,24 @@
     },
     {
       "d": "2026-10-16",
-      "title": "Easy + kontrola reakcji nóg",
-      "meta": "5–6 km · 5:55–6:20/km · HR 135–150",
-      "tag": "Easy",
-      "details": "Rozgrzewka: 5 min szybkiego marszu lub bardzo lekkiego truchtu, 10 krążeń kostek na stronę, 10 wspięć na palce, 8 wymachów nogi przód–tył na stronę. Część główna: 5–6 km swobodnie, bez ścigania tempa. Jeśli noga jest 0–1/10 i nie narasta, na końcu opcjonalnie 3×15–20 s luźnej przebieżki z pełnym odpoczynkiem. Schłodzenie: 3–5 min marszu. Oczekiwany Garmin Training Effect: aerobic około 2.0–2.8, anaerobic ~0."
+      "title": "Odpoczynek",
+      "meta": "Bez biegania · dużo jazdy autem",
+      "tag": "Rest",
+      "details": "Dzień odpoczynku. Dużo czasu w aucie = więcej sztywności bioder i ud, ale nie nadrabiamy treningu. Garmin Training Effect: brak."
     },
     {
       "d": "2026-10-17",
-      "title": "Odpoczynek",
-      "meta": "Spacer + 10 min mobilności",
-      "tag": "Rest",
-      "details": "Bez biegania i bez Pafawagu. Lekka mobilność kostek, bioder i łydki. Jeśli piątkowy easy zostawił ciężkie nogi, pełny odpoczynek. Garmin TE: brak."
+      "title": "Recovery easy + rozluźnienie ud",
+      "meta": "4–5 km · 6:05–6:30/km · HR 135–145",
+      "tag": "Recovery",
+      "details": "Rozgrzewka: 5 min szybkiego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę na stronę, 8 wykroków w tył na stronę, 10 lekkich przysiadów bez obciążenia, 8 wymachów nogi przód–tył na stronę. Bieg: 4–5 km bardzo swobodnie, bez przebieżek i bez podbiegów. Jeśli napięcie ud rośnie albo zmienia krok, przerwij. Schłodzenie: 5 min marszu. Po biegu: 2×30 s rozciągania zginacza biodra na stronę, 2×30 s czworogłowego na stronę, 2×30 s pośladka na stronę, 2×30 s łydki proste kolano + 2×30 s ugięte kolano. Bez bólu i bez agresywnego dociskania. Oczekiwany Garmin Training Effect: aerobic około 1.8–2.5, anaerobic ~0."
     },
     {
       "d": "2026-10-18",
-      "title": "Dłuższy easy",
-      "meta": "8–10 km · 5:55–6:20/km · HR 135–150",
-      "tag": "Long easy",
-      "details": "Rozgrzewka: 5–8 min bardzo lekko, 10 krążeń kostek na stronę, 10 wspięć na palce, 8 wykroków w tył na stronę, 2×15 s płynnego przyspieszenia tylko jeśli nogi są całkowicie spokojne. Część główna: 8–10 km równo i swobodnie, bez finiszu. Jeśli łydka/kostka daje znać, skróć do 6–8 km. Schłodzenie: 5 min marszu. Oczekiwany Garmin Training Effect: aerobic około 2.5–3.3, anaerobic niski. To ostatni trening regeneracyjnego tygodnia; od następnego bloku zaczynamy budowę pod sub 1:40."
+      "title": "Opcjonalny easy albo odpoczynek",
+      "meta": "6–8 km bardzo lekko tylko jeśli nogi świeże",
+      "tag": "Opcjonalnie",
+      "details": "Nie nadrabiaj piątkowego treningu. Jeśli po sobocie uda są wyraźnie luźniejsze, nie ma bólu i noc była normalna, zrób 6–8 km easy przy HR 135–150. Jeśli nadal czujesz mocne napięcie, wybierz odpoczynek + spacer. Bez finiszu, bez Pafawagu. Garmin TE przy biegu: aerobic około 2.2–3.0."
     }
   ]
 }

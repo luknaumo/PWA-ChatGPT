@@ -6,60 +6,60 @@
     "location": "Berlin"
   },
   "week": {
-    "start": "2026-10-12",
-    "end": "2026-10-18",
-    "title": "Regeneracja po Krakowie · wejście pod sub 1:40",
-    "note": "Priorytetem pozostaje regeneracja po półmaratonie. W sobotę tylko mobilność i rozluźnienie, a w niedzielę spokojne 10 km dla odznaki Garmin. Nie nadrabiamy pominiętych jednostek i nie dokładamy podbiegów ani siły. Po niedzielnym 10 km kolejny dzień będzie pełnym odpoczynkiem."
+    "start": "2026-10-19",
+    "end": "2026-10-25",
+    "title": "Budowa pod sub 1:40 · tydzień 1",
+    "note": "Pierwszy właściwy tydzień po regeneracji po Krakowie. Treningi planowane są rano przed drugą zmianą. Garmin Training Effect traktujemy jako kontrolę bodźca: easy ma być lekki, a główny bodziec tygodnia dają podbiegi Pafawag. Długoterminowo celem jest HM 1:30, a najbliższym celem sub 1:40."
   },
   "days": [
     {
-      "d": "2026-10-12",
-      "title": "Regeneracja po starcie",
-      "meta": "Bez biegania · spokojny ruch",
-      "tag": "Regeneracja",
-      "details": "Cel: regeneracja po HM. Tylko zwykłe chodzenie, jedzenie, płyny i sen. Bez siły nóg, interwałów i podbiegów. Oczekiwany Garmin Training Effect: brak / minimalny."
-    },
-    {
-      "d": "2026-10-13",
+      "d": "2026-10-19",
       "title": "Odpoczynek + mobilność",
-      "meta": "10–15 min bardzo lekko",
-      "tag": "Regeneracja",
-      "details": "Mobilność: krążenia kostek, ruch kolanem nad stopę, łagodne otwieranie bioder, lekkie wspięcia na palce. Bez agresywnego rozciągania i mocnego rolowania bolesnych miejsc. Garmin TE: brak."
-    },
-    {
-      "d": "2026-10-14",
-      "title": "Dzień bez biegania",
-      "meta": "Spacer według samopoczucia",
-      "tag": "Odpoczynek",
-      "details": "Kolejny dzień regeneracji po półmaratonie. Bez nadrabiania kilometrów. Jeśli łydka lub okolica nad kostką jest tkliwa, tylko swobodny ruch. Garmin TE: brak."
-    },
-    {
-      "d": "2026-10-15",
-      "title": "Regeneracja",
-      "meta": "Bez biegania · 12–15 min mobilności",
-      "tag": "Dziś",
-      "details": "Po krótkiej nocy nie dokładamy bodźca. Rozgrzewka/mobilność: 2 min spokojnego marszu, krążenia kostek, 2×10 ruchów kolanem nad stopę na stronę, 2×12 wspięć na palce, 10 wykroków w tył na stronę, 2×12 mostków biodrowych, 8–10 spokojnych world’s greatest stretch. Na koniec delikatne rozciąganie łydki 2×20–30 s. Garmin TE: brak."
-    },
-    {
-      "d": "2026-10-16",
-      "title": "Odpoczynek",
-      "meta": "Bez biegania · dużo jazdy autem",
+      "meta": "15 min · bez biegania",
       "tag": "Rest",
-      "details": "Dzień odpoczynku. Dużo czasu w aucie = więcej sztywności bioder i ud, ale nie nadrabiamy treningu. Garmin Training Effect: brak."
+      "details": "Po wczorajszym 10 km pełny odpoczynek od biegania. Mobilność 12–15 min: 5 min spokojnego marszu, 2×30 s zginacz biodra na stronę, 2×30 s czworogłowy uda, 2×30 s pośladek, 2×30 s łydka z prostym i ugiętym kolanem. Bez agresywnego rolowania. Garmin Training Effect: brak / minimalny."
     },
     {
-      "d": "2026-10-17",
-      "title": "Regeneracja + rozluźnienie ud",
-      "meta": "Bez biegania · mobilność i lekki spacer",
-      "tag": "Recovery",
-      "details": "Dziś nie nadrabiamy biegania. Przy krótkim śnie i napiętych udach zrób 10–15 min mobilności: 5 min spokojnego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył na stronę, 10 lekkich przysiadów, 2×30 s rozciągania zginacza biodra, czworogłowego, pośladka i łydki na stronę. Bez agresywnego dociskania. Garmin Training Effect: brak / minimalny."
+      "d": "2026-10-20",
+      "title": "Easy 6 km",
+      "meta": "5:55–6:20/km · HR 135–150",
+      "tag": "Easy",
+      "details": "Rozgrzewka: 5 min marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył na stronę, 8 wymachów nogą przód–tył. Część główna: 6 km swobodnie w tempie 5:55–6:20/km, HR 135–150. Schłodzenie: 5 min marszu. Oczekiwany Garmin Training Effect: aerobic 2.0–2.8, anaerobic ~0."
     },
     {
-      "d": "2026-10-18",
-      "title": "10 km easy · odznaka Garmin",
-      "meta": "10 km · 6:00–6:30/km · HR 135–150",
-      "tag": "Easy 10K",
-      "details": "Cel: spokojnie zaliczyć 10 km dla odznaki, bez robienia z tego testu. Rozgrzewka: 5–8 min szybkiego marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę na stronę, 8 wykroków w tył na stronę, 8 wymachów nogi przód–tył. Bieg: pierwsze 2 km bardzo lekko, potem równo 6:00–6:30/km przy HR 135–150. Zero podbiegów Pafawag, przebieżek i finiszu. Jeśli napięcie ud narasta, pojawia się ból albo zmienia krok — przerwij. Schłodzenie: 5 min marszu. Po biegu 2×30 s na stronę: zginacz biodra, czworogłowy, pośladek, łydka z prostym i ugiętym kolanem. Oczekiwany Garmin Training Effect: aerobic około 2.5–3.3, anaerobic niski."
+      "d": "2026-10-21",
+      "title": "Siła przygotowawcza",
+      "meta": "20–25 min · RPE 5–6/10",
+      "tag": "Strength",
+      "details": "Krótka sesja bez ciężkiego katowania nóg: 2×8 wykroków w tył na nogę, 2×10 hip hinge/RDL z lekkim obciążeniem lub bez, 2×12 mostków biodrowych, 2×12 wspięć na palce na prostym kolanie, 2×12 na lekko ugiętym, 2×30 s side plank na stronę. Cel: przygotowanie do regularnej siłowni bez DOMS."
+    },
+    {
+      "d": "2026-10-22",
+      "title": "Pafawag · podbiegi",
+      "meta": "6×45 s pod górę · RPE ~7/10",
+      "tag": "Quality",
+      "details": "Rozgrzewka: 2 km easy + 10 krążeń kostek na stronę + 8 wykroków w tył na stronę + 8 wymachów nogą przód–tył + 3×15 s luźnej przebieżki. Część główna: 6×45 s pod górę na Pafawagu, mocno ale kontrolowanie, około RPE 7/10, bez sprintu. Powrót w dół marszem lub lekkim truchtem 90–120 s. Schłodzenie: 2 km bardzo lekko. Łącznie około 7–8 km. Oczekiwany Garmin Training Effect: aerobic 3.0–3.7, anaerobic 1.5–2.5."
+    },
+    {
+      "d": "2026-10-23",
+      "title": "Odpoczynek + mobilność",
+      "meta": "10–15 min · bez biegania",
+      "tag": "Rest",
+      "details": "Spokojny dzień po podbiegach. Lekka mobilność bioder, ud, kostek i łydek. Jeśli nogi są ciężkie, tylko spacer. Garmin Training Effect: brak."
+    },
+    {
+      "d": "2026-10-24",
+      "title": "Easy + przebieżki",
+      "meta": "6 km easy + 4×15 s",
+      "tag": "Easy",
+      "details": "Rozgrzewka: 5 min marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył, 8 wymachów nogą. Bieg: 5,5–6 km spokojnie, HR 135–150. Jeśli nogi są świeże, na końcu 4×15 s szybko, ale luźno, z pełnym odpoczynkiem w marszu/truchcie. Schłodzenie 5 min marszu. Oczekiwany Garmin Training Effect: aerobic 2.0–2.8, anaerobic niski."
+    },
+    {
+      "d": "2026-10-25",
+      "title": "Long easy",
+      "meta": "10–12 km · 5:55–6:20/km · HR 135–150",
+      "tag": "Long easy",
+      "details": "Rozgrzewka: 5–8 min bardzo lekko + mobilizacja kostek i bioder. Część główna: 10–12 km równo i swobodnie w tempie 5:55–6:20/km, HR 135–150. Bez przyspieszania na końcu. Jeśli podbiegi zostawiły ciężkie nogi, skróć do 9–10 km. Schłodzenie: 5 min marszu. Oczekiwany Garmin Training Effect: aerobic 2.8–3.5, anaerobic niski."
     }
   ]
 }

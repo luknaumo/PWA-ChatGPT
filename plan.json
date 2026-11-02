@@ -6,60 +6,60 @@
     "location": "Berlin"
   },
   "week": {
-    "start": "2026-10-26",
-    "end": "2026-11-01",
-    "title": "Budowa pod sub 1:40 · tydzień 2",
-    "note": "Wtorek lekki: krótki easy + spokojny rower z żoną. Główny akcent w czwartek. Zwiększamy obciążenie stopniowo, jedną zmienną naraz, a niedzielny long ma być równy i bez finiszu."
+    "start": "2026-11-02",
+    "end": "2026-11-08",
+    "title": "Świdnica · tydzień startowy",
+    "note": "Mini-taper pod sobotni półmaraton. Celem jest świeżość, nie budowanie formy w ostatniej chwili. Sub 1:50 jest realne, ale na wymagającej trasie tempo kontrolujemy wysiłkiem: spokojny początek, równa środkowa część, decyzja po 15 km."
   },
   "days": [
     {
-      "d": "2026-10-26",
-      "title": "Odpoczynek + mobilność",
-      "meta": "10–15 min · bez biegania",
+      "d": "2026-11-02",
+      "title": "Pełny odpoczynek",
+      "meta": "Po 15 km w niedzielę · mobilność 10–15 min",
       "tag": "Rest",
-      "details": "Po niedzielnym 13 km pełny odpoczynek od biegania. 10–15 min lekkiej mobilności: kostki, łydki, biodra, czworogłowe i pośladki. Bez siły i bez agresywnego rolowania."
+      "details": "Bez biegania i bez siły. Spacer z psami normalnie. Wieczorem 10–15 min lekkiej mobilności: kostki, łydki, biodra, czworogłowe, pośladki. Bez agresywnego rolowania i bez rozciągania do bólu."
     },
     {
-      "d": "2026-10-27",
-      "title": "Lekki bieg + spokojny rower",
-      "meta": "4–5 km easy + 60–90 min roweru",
-      "tag": "Easy + bike",
-      "details": "Rozgrzewka: 5 min marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył i 8 wymachów nogą. Bieg 4–5 km bardzo lekko, około 6:00–6:25/km, HR 135–145. Bez przebieżek, podbiegów i finiszu. Później spokojna jazda rowerem z żoną 60–90 min w tempie rozmownym, najlepiej HR <140. Oczekiwany Garmin Training Effect z biegu: aerobic 1.8–2.5, anaerobic ~0."
-    },
-    {
-      "d": "2026-10-28",
-      "title": "Easy 6–7 km",
-      "meta": "5:55–6:20/km · HR 135–150",
+      "d": "2026-11-03",
+      "title": "Easy + krótkie przebieżki",
+      "meta": "5–6 km easy + 4×15 s",
       "tag": "Easy",
-      "details": "Rozgrzewka: 5 min marszu + krążenia kostek + 8 wykroków w tył + 8 wymachów nogą. Bieg 6–7 km swobodnie w tempie 5:55–6:20/km, HR 135–150. Bez przebieżek. Schłodzenie 5 min marszu. Oczekiwany Garmin Training Effect: aerobic 2.0–2.8."
+      "details": "Rozgrzewka: 5 min marszu, 10 krążeń kostek na stronę, 10 ruchów kolanem nad stopę, 8 wykroków w tył, 8 wymachów nogą. Bieg 5–6 km w tempie około 5:55–6:20/km, HR 135–150. Na końcu 4×15 s szybko, ale luźno; pełny odpoczynek 60–90 s marsz/trucht. Schłodzenie 5 min marszu. Cel: lekko pobudzić nogi, nie zmęczyć."
     },
     {
-      "d": "2026-10-29",
-      "title": "Próg 3×8 min",
-      "meta": "4:50–5:00/km · przerwa 3 min trucht",
-      "tag": "Quality",
-      "details": "Rozgrzewka: 2 km bardzo lekko + 10 ruchów kolanem nad stopę na stronę + 8 wykroków w tył + 8 wymachów nogą + 3×20 s luźnej przebieżki z pełnym odpoczynkiem. Główna część: 3×8 min w tempie 4:50–5:00/km, HR orientacyjnie 160–168, RPE około 7/10. Między odcinkami 3 min bardzo lekkiego truchtu. Schłodzenie 1,5–2 km easy. Łącznie około 8–9 km. Oczekiwany Garmin Training Effect: aerobic 3.5–4.2, anaerobic 0.5–1.5."
+      "d": "2026-11-04",
+      "title": "Odpoczynek + mobilność",
+      "meta": "10–15 min · bez siłowni",
+      "tag": "Rest",
+      "details": "Tylko normalny ruch i lekka mobilność. Nie robimy nóg na siłowni ani ćwiczeń powodujących DOMS. Jeśli czujesz sztywność: 10 min marszu + łydki, biodra, pośladki, delikatnie."
     },
     {
-      "d": "2026-10-30",
-      "title": "Lekka siła / odpoczynek",
-      "meta": "20–25 min · RPE 5–6/10",
-      "tag": "Strength",
-      "details": "Jeśli nogi po czwartku są OK: 2×8 wykroków w tył na nogę, 2×10 hip hinge/RDL, 2×12 mostków biodrowych, 2×12 wspięć na palce na prostym kolanie, 2×12 na ugiętym, 2×30–40 s side plank na stronę. Jeśli nogi są ciężkie, zamień całość na odpoczynek + 10 min mobilności."
+      "d": "2026-11-05",
+      "title": "Rozruch startowy",
+      "meta": "4,5–5,5 km · 3×3 min w tempie HM",
+      "tag": "Sharpen",
+      "details": "Rozgrzewka: 2 km bardzo lekko + mobilizacja kostek i bioder + 3×15 s luźnej przebieżki. Główna część: 3×3 min około 5:05–5:12/km, przerwa 2 min bardzo lekkiego truchtu. Ma być kontrolowanie, RPE około 6/10, bez wchodzenia na próg. Schłodzenie 1–1,5 km easy. Jeśli nogi są ciężkie, zamiast 3 powtórzeń zrób 2."
     },
     {
-      "d": "2026-10-31",
-      "title": "Recovery 5 km",
-      "meta": "6:05–6:30/km · HR 135–145",
+      "d": "2026-11-06",
+      "title": "Odpoczynek przed startem",
+      "meta": "Spacer + 8–10 min mobilności",
+      "tag": "Rest",
+      "details": "Bez biegania. Normalne jedzenie, bez deficytu kalorycznego. Węglowodany normalnie w każdym głównym posiłku, dużo płynów, nie eksperymentuj z nowym jedzeniem. Przygotuj strój, buty, żele i numer. Wcześnie do łóżka, ale nie stresuj się jeśli sen będzie przeciętny."
+    },
+    {
+      "d": "2026-11-07",
+      "title": "11. RST Półmaraton Świdnicki",
+      "meta": "Cel: sub 1:50 · średnio <5:13/km",
+      "tag": "Race",
+      "details": "Start 12:00. Rozgrzewka: 10–12 min bardzo lekkiego truchtu, 10 ruchów kolanem nad stopę na stronę, 8 wykroków w tył, 8 wymachów nogą, 3×20 s przebieżki; skończ 5–8 min przed startem. Strategia: km 1–3 około 5:15–5:18/km i spokojnie. Km 4–15 celuj średnio w 5:10–5:13/km, ale na podbiegach nie walcz z zegarkiem — trzymaj wysiłek i odrabiaj naturalnie na łatwiejszych odcinkach. Po 15 km, jeśli oddech i nogi są pod kontrolą, stopniowo przyspieszaj. Ostatnie 3 km możesz już ścigać. Cel rozsądny: 1:49:xx. Żywienie: śniadanie 2,5–3 h przed startem z 80–100 g węgli; opcjonalnie mały top-up 20–30 min przed. Żel około 35–40 min i drugi około 70–75 min, popij wodą."
+    },
+    {
+      "d": "2026-11-08",
+      "title": "Regeneracja",
+      "meta": "Spacer 30–60 min · bez biegania",
       "tag": "Recovery",
-      "details": "Przed pracą. Rozgrzewka 5 min marszu. Bieg 5 km bardzo spokojnie, 6:05–6:30/km, HR 135–145. Bez przebieżek, podbiegów i finiszu. Schłodzenie 5 min marszu. Jeśli jesteś niewyspany albo nogi są ciężkie, pomiń bieg bez nadrabiania. Oczekiwany Garmin Training Effect: aerobic 1.8–2.5."
-    },
-    {
-      "d": "2026-11-01",
-      "title": "Long easy 13–14 km",
-      "meta": "5:55–6:15/km · HR 135–150",
-      "tag": "Long easy",
-      "details": "Rozgrzewka: 5–8 min bardzo lekko + mobilizacja kostek i bioder. Pierwsze 2 km około 6:10–6:20/km, później 5:55–6:15/km, HR 135–150. Bez szybkiego finiszu. 2–3 h wcześniej normalne śniadanie z 70–100 g węglowodanów; opcjonalnie mały top-up 20–30 min przed. Żel około 40–45 min biegu, zanim pojawi się spadek energii. Oczekiwany Garmin Training Effect: aerobic 2.8–3.6."
+      "details": "Po półmaratonie bez biegania. Spokojny spacer, jedzenie i nawodnienie. Delikatna mobilność tylko jeśli daje ulgę. Nie oceniaj nóg ani formy na podstawie niedzielnej sztywności; wracamy do treningu dopiero po ocenie regeneracji."
     }
   ]
 }

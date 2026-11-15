@@ -6,60 +6,60 @@
     "location": "Berlin"
   },
   "week": {
-    "start": "2026-11-09",
-    "end": "2026-11-15",
-    "title": "Po Świdnicy · powrót do budowania formy",
-    "note": "Tydzień regeneracyjno-budujący po półmaratonie w Świdnicy (Garmin 1:44:17). 4 biegi, około 30–33 km, jeden łagodny akcent siły biegowej. Podbiegi tylko przy pełnej regeneracji nóg, bez bólu kolana/łydki. Cel Berlin: sub 1:40 (4:44/km)."
+    "start": "2026-11-16",
+    "end": "2026-11-22",
+    "title": "Równoważenie obciążenia · Pafawag",
+    "note": "4 biegi (~34–36 km), jeden akcent: 6×30 s podbiegi Pafawag. Rotacja akcentów: 16–22.11 Pafawag, 23–29.11 próg 3×6 min, 30.11–06.12 Pafawag 6–8×30 s, 07–13.12 próg 3×7 min, 14–20.12 Pafawag, 21–27.12 lżej. Garmin: obciążenie krótkoterminowe 898 optymalne, ale wysoki aerobowy ponad cel; większość wysiłku bardzo spokojnie. Rower do pracy liczy się do obciążenia."
   },
   "days": [
     {
-      "d": "2026-11-09",
-      "title": "Regeneracja po półmaratonie",
+      "d": "2026-11-16",
+      "title": "Rower rekreacyjny z żoną",
+      "meta": "Wolne · 45–90 min · lekko",
+      "tag": "Easy",
+      "details": "Spokojna jazda w tempie rozmowy, bez mocnych podjazdów i ścigania. Jeśli nogi po niedzielnych 14,4 km są zmęczone, skróć przejażdżkę lub odpocznij. Nie dodawaj biegu."
+    },
+    {
+      "d": "2026-11-17",
+      "title": "Bieg easy",
+      "meta": "II zmiana · 7 km · orientacyjnie 6:00–6:25/km",
+      "tag": "Easy",
+      "details": "Rano przed pracą (prawdopodobnie dojazd autem). 5 min marszu, następnie 7 km spokojnie w tempie rozmowy. Priorytet: niska intensywność i swobodny oddech; zwolnij, jeśli tętno rośnie. 5 min marszu na koniec. Jeśli poniedziałkowy rower zmęczył nogi, skróć do 5–6 km."
+    },
+    {
+      "d": "2026-11-18",
+      "title": "Odpoczynek i mobilność",
       "meta": "II zmiana · bez biegania",
       "tag": "Rest",
-      "details": "Spokojny spacer 20–30 min i 10 min lekkiej mobilności bioder, łydek, czworogłowych i pośladków. Bez siły nóg i bez intensywnego rolowania."
+      "details": "10–15 min lekkiej mobilizacji bioder, kostek i łydek. Opcjonalnie spacer. Rower do pracy, jeśli wystąpi, traktuj jako dodatkowe obciążenie."
     },
     {
-      "d": "2026-11-10",
-      "title": "Easy — powrót do biegania",
-      "meta": "II zmiana · 6 km · 5:50–6:20/km",
-      "tag": "Easy",
-      "details": "Rano przed pracą. Rozgrzewka: 5 min marszu, 10 krążeń kostek na stronę, 8 wykroków w tył i 8 wymachów na nogę. Następnie 6 km swobodnie po 5:50–6:20/km, w tempie rozmowy. Bez przebieżek. Na koniec 5 min marszu. Jeśli nogi po sobocie są ciężkie, skróć do 4–5 km lub odpocznij."
-    },
-    {
-      "d": "2026-11-11",
-      "title": "Podbiegi Pafawag — technika i siła",
-      "meta": "Dzień wolny · 5–6 km · 6×20 s",
+      "d": "2026-11-19",
+      "title": "Pafawag — 6×30 s pod górę",
+      "meta": "II zmiana · około 6–7 km · jeden akcent tygodnia",
       "tag": "Hills",
-      "details": "Tylko jeśli nie ma bólu kolana/łydki i zmęczenia po półmaratonie. Rozgrzewka: 2 km spokojnie (6:00–6:20/km), 5 min mobilizacji kostek/bioder, 2×20 m skip A i 2×20 m narastającego biegu. Główna część: 6×20 s pod umiarkowaną górę, mocno lecz technicznie (RPE 8/10), NIE maksymalny sprint. Powrót marszem 90–120 s, pełny oddech przed kolejnym powtórzeniem. Schłodzenie: 2 km truchtu + 5 min marszu. Przy ciężkich nogach zamień na 5–6 km easy. To bodziec siłowo-nerwowy, jeszcze nie pełny trening VO₂max."
+      "details": "Rano przed pracą, tylko jeśli kolano i łydki bez dolegliwości. 2 km spokojnej rozgrzewki + mobilizacja, 6 pełnych podbiegów Pafawag po około 30 s (RPE 8/10, technicznie, nie sprint). Powrót marszem lub bardzo wolnym truchtem, pełne uspokojenie oddechu. 2 km schłodzenia. Jeśli regeneracja słaba, zamiast podbiegów 6 km easy. Podbiegi ZASTĘPUJĄ próg; w kolejnym tygodniu próg 3×6 min."
     },
     {
-      "d": "2026-11-12",
-      "title": "Odpoczynek",
-      "meta": "I zmiana · spacer lub bardzo lekki rower",
-      "tag": "Rest",
-      "details": "Bez biegania. Opcjonalnie 20–30 min spaceru albo bardzo lekki rower bez podjazdów. Sen i regeneracja ważniejsze niż dokładanie kilometrów."
-    },
-    {
-      "d": "2026-11-13",
-      "title": "Spokojny bieg tlenowy",
-      "meta": "I zmiana · 7 km · 5:45–6:10/km",
+      "d": "2026-11-20",
+      "title": "Bieg regeneracyjny",
+      "meta": "II zmiana · 5–6 km · orientacyjnie 6:10–6:35/km",
       "tag": "Easy",
-      "details": "Po pracy, jeśli czujesz się świeżo. Rozgrzewka: 5 min marszu i 3 min mobilizacji kostek/bioder. 7 km swobodnie po 5:45–6:10/km, bez akcentów i bez przyspieszania na końcu. Schłodzenie 5 min marszu. Jeśli tętno jest nietypowo wysokie lub nogi ciężkie, zwolnij."
+      "details": "Bardzo swobodny bieg, bez przyspieszeń. Jeśli po Pafawagu nogi ciężkie lub dojazdy rowerem były intensywne, pomiń bieg i odpocznij. Obserwuj prawe kolano szczególnie przy schodzeniu po schodach."
     },
     {
-      "d": "2026-11-14",
-      "title": "Mobilność + odpoczynek",
-      "meta": "I zmiana · 15–20 min",
+      "d": "2026-11-21",
+      "title": "Odpoczynek",
+      "meta": "II zmiana · regeneracja",
       "tag": "Rest",
-      "details": "Bez biegania. 15–20 min lekkiej mobilizacji i aktywacji pośladków oraz łydek. Bez ciężkiego treningu nóg i bez DOMS przed długim wybieganiem."
+      "details": "Bez planowanego biegania. Opcjonalnie spacer i lekka mobilizacja. Sen i odżywianie przed niedzielnym wybieganiem."
     },
     {
-      "d": "2026-11-15",
-      "title": "Długie spokojne wybieganie",
-      "meta": "12–14 km · 5:45–6:15/km",
+      "d": "2026-11-22",
+      "title": "Długie wybieganie easy",
+      "meta": "14–15 km · orientacyjnie 6:00–6:25/km",
       "tag": "Long",
-      "details": "Rozgrzewka: 5–8 min marszu i 5 min bardzo wolnego truchtu. Następnie 12–14 km w swobodnym tempie około 5:45–6:15/km, na równym wysiłku, bez szybkiej końcówki. Po biegu 5 min marszu, posiłek z węglowodanami i białkiem. Wybierz 12 km, jeśli regeneracja po Świdnicy jest niepełna."
+      "details": "Całość w swobodnym tempie rozmowy, bez szybkiego finiszu. Jeśli tętno rośnie, zwolnij nawet do 6:30–6:45/km. Wybierz 12–14 km, jeśli tydzień z rowerem był obciążający lub regeneracja niepełna. 5 min marszu po biegu."
     }
   ]
 }

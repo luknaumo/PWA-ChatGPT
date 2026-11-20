@@ -9,7 +9,7 @@
     "start": "2026-11-16",
     "end": "2026-11-22",
     "title": "Równoważenie obciążenia · Pafawag",
-    "note": "4 biegi (~34–36 km), jeden akcent: 6×30 s podbiegi Pafawag. Rotacja akcentów: 16–22.11 Pafawag, 23–29.11 próg 3×6 min, 30.11–06.12 Pafawag 6–8×30 s, 07–13.12 próg 3×7 min, 14–20.12 Pafawag, 21–27.12 lżej. Garmin: obciążenie krótkoterminowe 898 optymalne, ale wysoki aerobowy ponad cel; większość wysiłku bardzo spokojnie. Poniedziałkowy rower rekreacyjny odwołany — pełny odpoczynek. Ewentualny rower do pracy w pozostałe dni liczy się do obciążenia."
+    "note": "4 biegi (~34–36 km), jeden akcent: 6×30 s podbiegi Pafawag. Rotacja akcentów: 16–22.11 Pafawag, 23–29.11 próg 3×6 min, 30.11–06.12 Pafawag 6–8×30 s, 07–13.12 próg 3×7 min, 14–20.12 Pafawag, 21–27.12 lżej. Garmin: obciążenie krótkoterminowe 898 optymalne, ale wysoki aerobowy ponad cel; większość wysiłku bardzo spokojnie. Poniedziałkowy rower rekreacyjny odwołany — pełny odpoczynek. Ewentualny rower do pracy w pozostałe dni liczy się do obciążenia. Piątek 20.11 zamieniony z sobotą 21.11 z powodu zmęczenia: piątek odpoczynek, sobota 5–6 km easy opcjonalnie."
   },
   "days": [
     {
@@ -42,17 +42,17 @@
     },
     {
       "d": "2026-11-20",
-      "title": "Bieg regeneracyjny",
-      "meta": "II zmiana · 5–6 km · orientacyjnie 6:10–6:35/km",
-      "tag": "Easy",
-      "details": "Bardzo swobodny bieg, bez przyspieszeń. Jeśli po Pafawagu nogi ciężkie lub dojazdy rowerem były intensywne, pomiń bieg i odpocznij. Obserwuj prawe kolano szczególnie przy schodzeniu po schodach."
+      "title": "Odpoczynek — zmęczenie",
+      "meta": "II zmiana · bez biegania",
+      "tag": "Rest",
+      "details": "Brak sił na bieganie po czwartkowym Pafawagu: pełny odpoczynek. Opcjonalnie spacer lub lekka mobilność. Nie nadrabiaj kilometrów na siłę."
     },
     {
       "d": "2026-11-21",
-      "title": "Odpoczynek",
-      "meta": "II zmiana · regeneracja",
-      "tag": "Rest",
-      "details": "Bez planowanego biegania. Opcjonalnie spacer i lekka mobilizacja. Sen i odżywianie przed niedzielnym wybieganiem."
+      "title": "Bieg regeneracyjny (przeniesiony z piątku)",
+      "meta": "II zmiana · 5–6 km · orientacyjnie 6:10–6:35/km",
+      "tag": "Easy",
+      "details": "Przeniesiony piątkowy bieg. Tylko przy dobrej regeneracji: 5–6 km bardzo spokojnie, bez akcentów. Jeśli nadal brak sił, pomiń. Przed niedzielnym wybieganiem nie przyspieszaj."
     },
     {
       "d": "2026-11-22",
